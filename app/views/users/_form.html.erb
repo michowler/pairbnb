@@ -3,6 +3,16 @@
   <%= form.text_field :full_name %>
 </div>
 
+
+
+<div class="field"> 
+<%= form.label :gender %>
+    <%= radio_button_tag(:gender, :female) %>
+    <%= label_tag(:gender_person, "female") %>
+    <%= radio_button_tag(:gender, :male) %>
+    <%= label_tag(:gender_person, "male") %>
+</div>
+
 <div class="text-field">
   <%= form.label :age %>
   <%= form.number_field :age %>
