@@ -1,0 +1,28 @@
+<div class="text-field">
+  <%= form.label :full_name %>
+  <%= form.text_field :full_name %>
+</div>
+
+<div class="field"> 
+  <%= form.label :gender %>
+  <select>
+    <option value=:undefined>Undefined</option>
+    <option value=:male>Male</option>
+    <option value=:female>Female</option>
+  </select>
+</div>
+
+<div class="text-field">
+  <%= form.label :age %>
+  <%= form.number_field :age %>
+</div>
+
+<div class="text-field">
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+</div>
+
+<div class="password-field">
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+</div>
