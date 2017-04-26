@@ -20,16 +20,13 @@
          </ul> 
     <% else -%>
         <%= link_to t(".sign_in"), sign_in_path %>
+        <%= link_to t(".sign_up"), sign_up_path %>
+
     <% end -%>
   </div>
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div role="alert" class="alert alert-<%= key %>">"<%=value %></div>
-    <% end %>
-  </div>
-
   <div class="container">
+   <%= flash_messages %>
     <%= yield %>
   </div>
 

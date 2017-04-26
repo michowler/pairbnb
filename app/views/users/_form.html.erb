@@ -4,11 +4,12 @@
 </div>
 
 <div class="field"> 
-<%= form.label :gender %>
-    <%= radio_button_tag(:gender, :female) %>
-    <%= label_tag(:gender_person, "female") %>
-    <%= radio_button_tag(:gender, :male) %>
-    <%= label_tag(:gender_person, "male") %>
+  <%= form.label :gender %>
+  <select>
+    <option value=:undefined>Undefined</option>
+    <option value=:male>Male</option>
+    <option value=:female>Female</option>
+  </select>
 </div>
 
 <div class="text-field">
