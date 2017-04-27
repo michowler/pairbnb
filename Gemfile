@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem "clearance"
 gem "figaro"
+gem 'omniauth-facebook'
 
 
 # Use Capistrano for deployment
