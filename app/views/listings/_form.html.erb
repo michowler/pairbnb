@@ -1,0 +1,37 @@
+<div class="text-field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+
+<div class="text-field">
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</div>
+
+<div class="field"> 
+  <%= form.label :place_type %>
+  <select>
+    <option value=:guesthouse>Guesthouse</option>
+    <option value=:hotel>Hotel</option>
+    <option value=:apartment>Apartment</option>
+    <option value=:townhouse>Townhouse</option>
+    <option value=:cabin>Cabin</option>
+    <option value=:house>House</option>
+    <option value=:bungalow>Bungalow</option>
+  </select>
+</div>
+
+<div class="text-field">
+  <%= form.label :guest %>
+  <%= form.number_field :guest %>
+</div>
+
+<div class="text-field">
+  <%= form.label :bedroom %>
+  <%= form.number_field :bedroom %>
+</div>
+
+<div class="text-field">
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+</div>
