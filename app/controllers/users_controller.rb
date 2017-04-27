@@ -13,13 +13,15 @@ class UsersController < Clearance::UsersController
 	def index
 	    # do some things here
 
-	    respond_to do |format|
-	      format.js { flash.now[:notice] = "Here is my flash notice" }
-	    end
+	    # respond_to do |format|
+	    #   format.js { flash.now[:notice] = "Here is my flash notice" }
+	    # end
 	end
 
 	private
 	def user_params
 		params.require(:user).permit(:full_name, :email, :password, :gender, :age)
 	end
+
+	
 end
