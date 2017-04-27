@@ -1,3 +1,4 @@
+<h1>CREATE YOUR LISTING</h1>
 <div class="text-field">
   <%= form.label :title %>
   <%= form.text_field :title %>
@@ -23,15 +24,15 @@
 
 <div class="text-field">
   <%= form.label :guest %>
-  <%= form.number_field :guest %>
+  <%= form.number_field :guest, min: 1, max: 12, step: 1 %>
 </div>
 
 <div class="text-field">
   <%= form.label :bedroom %>
-  <%= form.number_field :bedroom %>
+  <%= form.number_field :bedroom, min: 1, step: 1 %>
 </div>
 
 <div class="text-field">
   <%= form.label :price %>
-  <%= form.number_field :price %>
+  <%= form.number_field :price, min: 50 %>
 </div>

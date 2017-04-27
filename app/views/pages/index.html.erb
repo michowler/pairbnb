@@ -1,12 +1,43 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 left">
-			<h1>PairBnB</h1>
-			<p>Welcome to WhereverYouAAAAre.</p>
+			<h1>WhereYouBe</h1>
+			<p>Welcome to WhereverYou'llBe.</p>
+
+			<div id="mySidenav" class="sidenav">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <%= link_to "Create new listings", new_listing_path %>
+			</div>
+
+			<div id="main">
+			 
+			  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; more info</span>
+			</div>
+
+				<h1><% @listings.each do |l| %></h1>
+
+				<div class="promos">  
+					<div class="promo scale">
+					  <div class="deal">
+					    <span><%= l.title %></span>
+					    <span><%= l.description %></span>
+					  </div>
+					  <span class="price">RM<%= l.price %></span>
+					  <ul class="features">
+					    <li><%= l.place_type %></li>
+					    <li><%= l.bedroom %> rooms</li>
+					    <li><%= l.guest %> guests</li>   
+					  </ul>
+					  <button>Book Now</button>
+					</div>
+				<% end %>	
+			
+			</div>
 			
 		</div>
 		<div class="col-md-6 right">
-			<%= link_to "Create new listings", new_listing_path %>
+			
+
 		</div>
 	</div>
 </div>

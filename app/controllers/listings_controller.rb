@@ -14,11 +14,11 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-		@listing = Listing.new(url_params)
+		@listing = Listing.new(list_params)
 		if @listing.save
-			redirect_to root_path
+			redirect_to @listing
 		else
-			render 'index'	
+			render action: 'new'	
 		end	
 	end
 
@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
 	end
 
 	def show
+		@listings = Listing.all
 	end
 
 	private 
@@ -35,7 +36,7 @@ class ListingsController < ApplicationController
 		@listing = Listing.find(params[:id])
 	end
 
-	def url_params
+	def list_params
 	    params.require(:listing).permit(:user, :title, :description, :place_type, :bedroom, :guest, :price)
 	end
 
