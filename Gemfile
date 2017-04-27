@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "clearance"
+gem "figaro"
 
 
 # Use Capistrano for deployment
