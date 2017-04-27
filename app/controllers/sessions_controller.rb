@@ -1,4 +1,5 @@
 class SessionsController < Clearance::SessionsController
+
 	def create
 	   @user = authenticate(params)
 
