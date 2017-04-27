@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem "clearance"
 gem "figaro"
 gem 'omniauth-facebook'
+gem 'faker'
 
 
 # Use Capistrano for deployment

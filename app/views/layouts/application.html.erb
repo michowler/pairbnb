@@ -12,22 +12,28 @@
     <% if signed_in? -%>
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
-          <%= link_to 'PairBnB', root_path, class: 'navbar-brand' %>
+          <%= link_to 'WhereYouBe', root_path, class: 'navbar-brand' %>
         </div>
-        <ul class="nav navbar-nav pull-right">
+        <div class="nav navbar-nav pull-right">
           <li> Welcome back <%=current_user.email%> </li>
           <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
-         </ul> 
+         </div> 
     <% else -%>
-        <%= link_to t(".sign_in"), sign_in_path %>
-        <%= link_to t(".sign_up"), sign_up_path %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+          <%= link_to 'PairBnB', root_path, class: 'navbar-brand' %>
+        </div>
+        <div>
+          <%= link_to t(".sign_in"), sign_in_path %>
+          <%= link_to t(".sign_up"), sign_up_path %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+        </div>
 
     <% end -%>
   </div>
 
   <div class="container">
-   <%= flash_messages %>
+    <%= flash_messages %>
     <%= yield %>
   </div>
 

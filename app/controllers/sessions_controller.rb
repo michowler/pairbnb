@@ -34,7 +34,8 @@ class SessionsController < Clearance::SessionsController
 
 	 def destroy
 	    sign_out
-	    redirect_to url_after_destroy, success:'Logged out!'
+	    redirect_to root_path
+	    flash[:success] = "Logged out!"
 	 end
 
 
