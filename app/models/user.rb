@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
 	     user = User.create!(full_name: auth_hash["name"], email: auth_hash["extra"]["raw_info"]["email"])
-	     user.authentications << (authentication)      return user
+	     user.authentications << (authentication)      
+	     return user
 	end
 
     def fb_token
