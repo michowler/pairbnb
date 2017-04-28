@@ -2,6 +2,22 @@
 @import "bootstrap";
 @import "pages";
 
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 body {
 	color: #20B2AA;

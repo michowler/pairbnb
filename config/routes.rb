@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   resources :listings, controller: "listings"
-  
+
+  resources :tags, controller: "listings" do
+   resource :listings
+  end
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
   

@@ -5,8 +5,6 @@ class ListingsController < ApplicationController
 	
 
 	def index
-		@listings = Listing.all
-		@listing = Listing.new
 	end
 	
 	def new
@@ -14,8 +12,10 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-		@listing = Listing.new(listing_params)
-		
+		@listing = current_user.listings.new(listing_params)
+		#@listing.tag_ids = Listing.new(tag_ids: params[:listing][:tag_ids])
+		# @listing.user_id = current_user.id
+		byebug
 		if @listing.save
 			redirect_to @listing
 		else
@@ -47,7 +47,7 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-	    params.require(:listing).permit(:user, :title, :description, :place_type, :bedroom, :guest, :price)
+	    params.require(:listing).permit(:title, :description, :location, :place_type, :bedroom, :guest, :price, { :tag_ids => [] })
 	end
 
 	 # def require_login
