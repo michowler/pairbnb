@@ -8,14 +8,18 @@ class ListingsController < ApplicationController
 	end
 	
 	def new
-		@listing = Listing.new
+		if current_user.customer? == false
+	        flash[:notice] = "Sorry. You are not allowed to perform this action."
+	        return redirect_to root_path, notice: "Sorry. You do not have the permissino to verify a property."
+		else 
+			@listing = Listing.new
+		end	
 	end
 
 	def create
 		@listing = current_user.listings.new(listing_params)
 		#@listing.tag_ids = Listing.new(tag_ids: params[:listing][:tag_ids])
 		# @listing.user_id = current_user.id
-		byebug
 		if @listing.save
 			redirect_to @listing
 		else

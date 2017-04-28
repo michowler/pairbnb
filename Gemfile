@@ -36,6 +36,7 @@ gem "clearance"
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'faker'
+gem "simple_calendar", "~> 2.0"
 
 
 # Use Capistrano for deployment
