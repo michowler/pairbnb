@@ -1,7 +1,5 @@
-
-
 <div id="listing" class="new-listing">
-  <%= form_for @listing, url: {controller: "listings", action: "create"} do |form| %>
+  <%= form_for @listing do |form| %>
     <%= render partial: '/listings/form', object: form %>
   <% end %>
 </div>

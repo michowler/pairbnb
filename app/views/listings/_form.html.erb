@@ -39,7 +39,12 @@
 
         <div class="text-field">
           <%= form.label :price %>
-          <%= form.number_field :price, min: 50, max: 99999, step: 1 %>
+          <%= form.number_field :price, min: 50, max: 90000, step: 1 %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :tags,  "Amenities:" %>
+          <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :tag_content %>
         </div>
 
         <div class="submit-field">
