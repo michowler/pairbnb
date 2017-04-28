@@ -1,11 +1,7 @@
-<div id="listing" class="new-listing">
 
+
+<div id="listing" class="new-listing">
   <%= form_for @listing, url: {controller: "listings", action: "create"} do |form| %>
     <%= render partial: '/listings/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
   <% end %>
 </div>

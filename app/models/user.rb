@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
   
-  enum gender: [:undefined, :male, :females]
-  enum place_type: [:guesthouse, :hotel, :apartment, :townhouse, :cabin, :house, :bungalow]
+  enum gender: [:undefined, :male, :female]
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
     create! do |u|

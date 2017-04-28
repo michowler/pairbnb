@@ -4,10 +4,11 @@ class CreateListings < ActiveRecord::Migration[5.0]
     	t.references :user, foreign_key: true
     	t.string :title, null: false
     	t.text :description	
-    	t.string :place_type, default: 0
+    	t.integer :place_type, default: 0
     	t.integer :bedroom
     	t.integer :guest
     	t.integer :price, null: false
+        t.string :location
     	
     	t.timestamps
     end
