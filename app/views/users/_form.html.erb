@@ -1,23 +1,19 @@
-<div class="text-field">
+<div class="name-field">
   <%= form.label :full_name %>
   <%= form.text_field :full_name %>
 </div>
 
-<div class="field"> 
+<div class="gender-field"> 
   <%= form.label :gender %>
-  <select>
-    <option value=:undefined>Undefined</option>
-    <option value=:male>Male</option>
-    <option value=:female>Female</option>
-  </select>
+  <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
 </div>
 
-<div class="text-field">
+<div class="age-field">
   <%= form.label :age %>
   <%= form.number_field :age %>
 </div>
 
-<div class="text-field">
+<div class="email-field">
   <%= form.label :email %>
   <%= form.text_field :email %>
 </div>

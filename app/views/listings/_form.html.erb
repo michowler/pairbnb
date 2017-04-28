@@ -1,38 +1,57 @@
-<h1>CREATE YOUR LISTING</h1>
-<div class="text-field">
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 left">
+    </div>
 
-<div class="text-field">
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-</div>
+      <div class="col-md-6 center">
 
-<div class="field"> 
-  <%= form.label :place_type %>
-  <select>
-    <option value=:guesthouse>Guesthouse</option>
-    <option value=:hotel>Hotel</option>
-    <option value=:apartment>Apartment</option>
-    <option value=:townhouse>Townhouse</option>
-    <option value=:cabin>Cabin</option>
-    <option value=:house>House</option>
-    <option value=:bungalow>Bungalow</option>
-  </select>
-</div>
+        <h1>CREATE YOUR LISTING</h1>
 
-<div class="text-field">
-  <%= form.label :guest %>
-  <%= form.number_field :guest, min: 1, max: 12, step: 1 %>
-</div>
+        <div class="text-field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
 
-<div class="text-field">
-  <%= form.label :bedroom %>
-  <%= form.number_field :bedroom, min: 1, step: 1 %>
-</div>
+        <div class="text-field">
+          <%= form.label :description %>
+          <%= form.text_field :description %>
+        </div>
 
-<div class="text-field">
-  <%= form.label :price %>
-  <%= form.number_field :price, min: 50 %>
+        <div class="location-field">
+          <%= form.label :location %>
+          <%= form.text_field :location %>
+        </div>
+
+        <div class="room-field">
+             <%= form.label :place_type %>
+             <%= form.select :place_type, options_for_select([["guesthouse", :guesthouse], ["hotel", :hotel], ["apartment", :apartment], ["townhouse", :townhouse], ["cabin", :cabin], ["house", :house], ["bungalow", :bungalow]])%>
+        </div>
+
+        <div class="text-field">
+          <%= form.label :guest %>
+          <%= form.number_field :guest, min: 1, max: 12, step: 1 %>
+        </div>
+
+        <div class="text-field">
+          <%= form.label :bedroom %>
+          <%= form.number_field :bedroom, min: 1, max: 50, step: 1 %>
+        </div>
+
+        <div class="text-field">
+          <%= form.label :price %>
+          <%= form.number_field :price, min: 50, max: 99999, step: 1 %>
+        </div>
+
+        <div class="submit-field">
+          <%= form.submit %>
+        </div>
+   
+
+       </div>
+       
+       <div class="col-md-3 right">
+       </div> 
+
+    </div>
+  </div>
 </div>

@@ -27,14 +27,15 @@ ActiveRecord::Schema.define(version: 20170427083741) do
 
   create_table "listings", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title",                     null: false
+    t.string   "title",                   null: false
     t.text     "description"
-    t.string   "place_type",  default: "0"
+    t.integer  "place_type",  default: 0
     t.integer  "bedroom"
     t.integer  "guest"
-    t.integer  "price",                     null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "price",                   null: false
+    t.string   "location"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 
