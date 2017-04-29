@@ -12,7 +12,7 @@
 	    <li><%= @listing.bedroom %> rooms</li>
 	    <li><%= @listing.guest %> guests</li>  
 	    <li><%@listing.tags.each do |t|%>
-		    <%=link_to "#{t.tag_content}", tag_listings_path(t.id)%><br>
+		    <%=link_to t.tag_content, tag_listings_path(t.id)%>
 		    <%end%>
 	    </li>
 	  </ul>

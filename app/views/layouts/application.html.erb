@@ -14,9 +14,18 @@
     <nav class="navbar navbar-inverse">
         <div class="navbar-header">
           <%= link_to 'Mingle', root_path, class: 'navbar-brand' %>
+            <span class= 'navbar-brand' id="main" style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; more info</span>
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <%= link_to "Create listing", new_listing_path %>
+              Tags: <% @tags.each do |t|%>
+              <%=link_to t.tag_content, tag_listings_path(t.id)%>
+            <%end%>
+            </div>
         </div>
+
         <div class="nav navbar-nav pull-right">
-          <li> Welcome back <%=current_user.email%> </li>
+          <span class='navbar-brand'> Welcome back <%=current_user.email%> </span>
           <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
          </div> 
     <% else -%>
