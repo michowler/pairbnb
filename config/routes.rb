@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :listings, controller: "listings"
 
-  resources :tags, controller: "listings" do
-   resource :listings
+  resources :tags, controller: "tags" do
+   resource :listings, controller: "tags"
   end
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]

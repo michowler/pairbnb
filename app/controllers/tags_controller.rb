@@ -3,6 +3,7 @@ class TagsController < ApplicationController
 	before_action :find_tag, only: [:show, :delete, :edit, :update]
 
 	def index
+		@show_tag = Tag.all
 		@tags = Tag.all
 		@tag = Tag.new
 	end
@@ -34,7 +35,7 @@ class TagsController < ApplicationController
 
 	private 
 	def find_tag
-		@tag = Tag.find(params[:id])
+		@tag = Tag.find(params[:tag_id])
 	end
 
 	def tag_params
