@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#User.create(full_name:"Michelle", email:"michelle@gmail.com", password:"123123", gender:2, age:20, status:"moderator")
+#User.create(full_name:"Lili", email:"lili@example.com", password:"123123", gender:2, age:27, status:"customer")
 user = {}
 user['password'] = '123123'
 
@@ -34,7 +36,7 @@ ActiveRecord::Base.transaction do
     listing['guest'] = rand(1..10)
     listing['location'] = Faker::Address.street_address
     listing['price'] = rand(80..500)
-    listing['tag_ids'] = rand(1..6)
+    listing['tag_ids'] = rand(1..6) 
     
 
     listing['user_id'] = uids.sample

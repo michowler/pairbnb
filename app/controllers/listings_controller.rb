@@ -5,6 +5,7 @@ class ListingsController < ApplicationController
 	
 
 	def index
+		@show_tag = Tag.all
 	end
 	
 	def new
@@ -43,6 +44,7 @@ class ListingsController < ApplicationController
 
 	def show
 		@listings = Listing.all
+		@tags = Tag.all
 	end
 
 	private 

@@ -1,3 +1,22 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+</head>
+<body>
+ 
+</body>
+</html>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3 left">
@@ -7,12 +26,17 @@
 
         <h1>CREATE YOUR LISTING</h1>
 
-        <div class="text-field">
+        <div class="title-field">
           <%= form.label :title %>
           <%= form.text_field :title %>
         </div>
 
-        <div class="text-field">
+        <div class="description-field">
+          <%= form.label :description %>
+          <%= form.text_field :description %>
+        </div>
+
+        <div class="start-date-field">
           <%= form.label :description %>
           <%= form.text_field :description %>
         </div>
@@ -22,24 +46,24 @@
           <%= form.text_field :location %>
         </div>
 
-        <div class="room-field">
+        <div class="place-type-field">
            <%= form.label :place_type %>
            <%= form.select :place_type, options_for_select([["guesthouse", :guesthouse], ["hotel", :hotel], ["apartment", :apartment], ["townhouse", :townhouse], ["cabin", :cabin], ["house", :house], ["bungalow", :bungalow]])%>
         </div>
 
-        <div class="text-field">
+        <div class="guest-field">
           <%= form.label :guest %>
           <%= form.number_field :guest, min: 1, max: 12, step: 1 %>
         </div>
 
-        <div class="text-field">
+        <div class="bedroom-field">
           <%= form.label :bedroom %>
           <%= form.number_field :bedroom, min: 1, max: 50, step: 1 %>
         </div>
 
-        <div class="text-field">
+        <div class="price-field">
           <%= form.label :price %>
-          <%= form.number_field :price, min: 50, max: 90000, step: 1 %>
+          <%= form.number_field :price, min: 1, step: 1 %>
         </div>
 
         <div class="form-group">
