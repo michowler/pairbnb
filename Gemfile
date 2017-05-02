@@ -38,6 +38,7 @@ gem 'omniauth-facebook'
 gem 'faker'
 gem "simple_calendar", "~> 2.0"
 gem 'will_paginate', '~> 3.1.0'
+gem 'carrierwave', '~> 1.0'
 
 
 # Use Capistrano for deployment
