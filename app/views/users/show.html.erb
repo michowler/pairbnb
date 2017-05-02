@@ -1,2 +1,5 @@
 <h1>Welcome! <%= @user.full_name %></h1>
-<p>Listings</p>
+<div><%= link_to "Edit Profile", edit_user_path%></div>
+
+<%= image_tag @user.avatar_url %>
+

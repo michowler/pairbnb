@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 left">
+
+	      <%= form_for @user do |form| %>
+	      <%= render partial: '/users/form', object: form %>
+	      <%end%>
+
+        <div class="upload-field">
+          <%= form.text_field :upload %>
+          <%= form.file_field :upload %>
+        </div>
+
+        <div class="submit-field">
+          <%= form.submit %>
+        </div>
+
+      </div>
+
+       <div class="col-md-6 right">
+       </div> 
+
+    </div>
+  </div>
+</div>

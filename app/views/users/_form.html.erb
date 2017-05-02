@@ -3,6 +3,11 @@
   <%= form.text_field :full_name %>
 </div>
 
+<div class="avatar">
+  <%= form.label :upload_avatar%>
+  <%= form.file_field :avatar %>
+</div>  
+
 <div class="gender-field"> 
   <%= form.label :gender %>
   <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
