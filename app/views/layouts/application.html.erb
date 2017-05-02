@@ -18,7 +18,7 @@
             <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <%= link_to "Create listing", new_listing_path %>
-              Tags: <% @tags.each do |t|%>
+              <p>Tags: <% Tag.all.each do |t|%></p>
               <%=link_to t.tag_content, tag_listings_path(t.id)%>
             <%end%>
             </div>
@@ -33,11 +33,11 @@
         <div class="navbar-header">
           <%= link_to 'Mingle', root_path, class: 'navbar-brand' %>
         </div>
-        <div>
-          <%= link_to t(".sign_in"), sign_in_path %>
-          <%= link_to t(".sign_up"), sign_up_path %>
-          <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-        </div>
+        <span>
+          <%= button_to "Sign In", sign_in_path, :class => "btn btn-primary", :method => :get %> 
+          <%= button_to "Sign Up", sign_up_path, :class => "btn btn-primary", :method => :get %>
+          <%= button_to "Sign in with FB", "/auth/facebook", :class => "btn btn-primary", :method => :get %>
+        </span>
 
     <% end -%>
   </div>
