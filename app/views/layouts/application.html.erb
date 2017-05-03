@@ -19,13 +19,13 @@
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <%= link_to "Create listing", new_listing_path %>
               <p>Tags: <% Tag.all.each do |t|%></p>
-              <%=link_to t.tag_content, tag_listings_path(t.id)%>
-            <%end%>
+                <%=link_to t.tag_content, tag_listings_path(t.id)%>
+              <%end%>
             </div>
         </div>
 
         <div class="nav navbar-nav pull-right">
-          <span class='navbar-brand'> Welcome back <%=current_user.email%> </span>
+          <span> <a href= "/users/<%=current_user.id%>" class='navbar-brand'>Welcome back <%=current_user.email%> </a></span>
           <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
          </div> 
     <% else -%>
