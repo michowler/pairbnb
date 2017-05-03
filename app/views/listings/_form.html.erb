@@ -31,12 +31,12 @@
           <%= form.text_field :title %>
         </div>
 
-        <div class="description-field">
-          <%= form.label :description %>
-          <%= form.text_field :description %>
-        </div>
+        <div class="avatar-field">
+          <%= form.label :upload%>
+          <%= form.file_field :photos, multiple: true %>
+        </div>  
 
-        <div class="start-date-field">
+        <div class="description-field">
           <%= form.label :description %>
           <%= form.text_field :description %>
         </div>

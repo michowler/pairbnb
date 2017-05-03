@@ -53,7 +53,7 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-	    params.require(:listing).permit(:title, :description, :location, :place_type, :bedroom, :guest, :price, { :tag_ids => [] })
+	    params.require(:listing).permit(:title, :description, :location, :place_type, :bedroom, :guest, :price, {:tag_ids => []}, {:photos => []})
 	end
 
 	 # def require_login
