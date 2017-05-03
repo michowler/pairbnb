@@ -12,7 +12,7 @@ class User < ApplicationRecord
     create! do |u|
        u.full_name = auth_hash["info"]["name"]
        u.email = auth_hash["extra"]["raw_info"]["email"]
-       #u.gender = auth_hash["extra"]["raw_info"]["gender"]
+       u.gender = auth_hash["extra"]["raw_info"]["gender"]
 	     #user = User.create!(full_name: auth_hash["info"]["name"], email: auth_hash["extra"]["raw_info"]["email"])
 	     u.authentications << (authentication)      
        u.password = SecureRandom.hex(7)
