@@ -8,6 +8,7 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
+    <% if @listing.photos? %>
    		<div class= "item active">
    			<%= image_tag @listing.photos.first, class:"img-response" %>
    		</div>
@@ -18,6 +19,10 @@
    			<%= image_tag photo, class:"img-response" %>
    			</div>
    		<%end%>
+
+    <% else %> 
+      <%= "ERROR NO PIC" %>
+    <%end%>
   </div>
 
   <!-- Left and right controls -->
@@ -31,6 +36,27 @@
   </a>
 </div>
 
+
+
+<%= form_for [@listing, @reservation] do |f| %>
+  <div class="col-sm-12">
+    <%= f.label :num_guests %>
+    <%= f.number_field :num_guests %>
+  </div>
+  <br>
+  <div class="col-sm-6">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, min: Date.today %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </div>
+  <%= f.submit "Submit Booking", class: 'btn btn-primary' %>
+ <%end%> 
+
+
+<%= button_to "Book Now", listing_reservations_path(@listing), :class => "btn btn-primary", :method => :post %> 
 
 <h1><%= @listing.title %></h1>
 <div><%= link_to "Edit Listing", edit_listing_path%></div>
@@ -50,7 +76,8 @@
 		    <%end%>
 	    </li>
 	  </ul>
-	  <button>Book Now</button>
+	  <button>Book Now </button>
+    
 	</div>
 </div>
 

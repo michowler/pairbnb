@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   resources :listings, controller: "listings"
 
+  resources :listings do 
+     resources :reservations, only: [:create]
+   end
+  resources :reservations, only: [:destroy]
+
   resources :tags, controller: "tags" do
    resource :listings, controller: "tags"
   end
@@ -17,6 +22,8 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
+
+
 
   # resources :users, controller: "users", only: [:show] do
   #   resources :listings,

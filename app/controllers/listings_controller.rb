@@ -31,6 +31,7 @@ class ListingsController < ApplicationController
 	def update
        @listing.update(listing_params)
        @listing.user_id = current_user.id
+       
        redirect_to @listing
 	end
 
@@ -44,7 +45,7 @@ class ListingsController < ApplicationController
 
 	def show
 		@listings = Listing.all
-		@tags = Tag.all
+		@reservation = @listing.reservations.new
 	end
 
 	private 

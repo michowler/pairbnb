@@ -4,6 +4,7 @@ class User < ApplicationRecord
  
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
+  has_many :reservations, :dependent => :destroy
 
   enum status: [:customer, :superadmin, :moderator]
   enum gender: [:undefined, :male, :female]

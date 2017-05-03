@@ -1,10 +1,12 @@
 <h1>Welcome <%= @user.full_name %>!</h1>
-<div><%= link_to "Edit Profile", edit_user_path%></div>
-<div><%= link_to "My listings in process", edit_user_path%></div>
+<div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
+<div><%= link_to "My listings in process", root_path%></div>
 
 <% if @user.avatar? %>
 	<%= image_tag @user.avatar.thumb.url, :class => "img-responsive img-circle" %>
 <% else %> 
 	<%= "ERROR NO PIC" %>
 <%end%>
+
+
 
