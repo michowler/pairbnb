@@ -5,8 +5,32 @@
 <% if @user.avatar? %>
 	<%= image_tag @user.avatar.thumb.url, :class => "img-responsive img-circle" %>
 <% else %> 
-	<%= "ERROR NO PIC" %>
+	<%= flash[:notice] = "ERROR NO PIC" %>
 <%end%>
+
+
+ <h2>Booked Dates</h2>
+ <table class="table table-striped">
+   <tr>
+     <th>Listing Title</th>
+     <th>Start Date</th>
+     <th>End Date</th>
+     <th>Num Guests</th>
+     <th>Total Price</th>
+     <th>Actions</th>
+   </tr>
+
+   <% @user.reservations.each do |booking| %>
+     <tr>
+       <td><%= link_to booking.listing.title, booking.listing %></td>
+       <td><%= booking.start_date.strftime('%d %B %Y') %></td>
+       <td><%= booking.end_date.strftime('%d %B %Y') %></td>
+       <td><%= booking.num_guests %></td>
+       <td>RM <%= booking.total_price %></td>
+       <td><%= link_to "Cancel Booking", booking, method: :delete %></td>
+     </tr>
+   <% end %>
+ </table>
 
 
 

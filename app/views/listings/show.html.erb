@@ -10,13 +10,13 @@
   <div class="carousel-inner">
     <% if @listing.photos? %>
    		<div class= "item active">
-   			<%= image_tag @listing.photos.first, class:"img-response" %>
+   			<%= image_tag @listing.photos.first.fill, class:"img-response" %>
    		</div>
 
    		<% @listing.photos.shift %>
    		<% @listing.photos.each do |photo| %>
    			<div class= "item">
-   			<%= image_tag photo, class:"img-response" %>
+   			<%= image_tag photo.fill, class:"img-response" %>
    			</div>
    		<%end%>
 
@@ -36,8 +36,6 @@
   </a>
 </div>
 
-
-
 <%= form_for [@listing, @reservation] do |f| %>
   <div class="col-sm-12">
     <%= f.label :num_guests %>
@@ -56,7 +54,26 @@
  <%end%> 
 
 
-<%= button_to "Book Now", listing_reservations_path(@listing), :class => "btn btn-primary", :method => :post %> 
+ <h2>Booked Dates</h2>
+ <table class="table table-striped">
+   <tr>
+     <th>Listing Title</th>
+     <th>Start Date</th>
+     <th>End Date</th>
+     <th>Num Guests</th>
+    
+   </tr>
+
+   <% Reservation.all.each do |booking| %>
+     <tr>
+       <td><%= link_to booking.listing.title, booking.listing %></td>
+       <td><%= booking.start_date.strftime('%d %B %Y') %></td>
+       <td><%= booking.end_date.strftime('%d %B %Y') %></td>
+       <td><%= booking.num_guests %></td>
+     </tr>
+   <% end %>
+ </table>
+ 
 
 <h1><%= @listing.title %></h1>
 <div><%= link_to "Edit Listing", edit_listing_path%></div>
