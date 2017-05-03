@@ -17,7 +17,7 @@
             <span class= 'navbar-brand' id="main" style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; more info</span>
             <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <%= link_to "Create listing", new_listing_path %>
+              <%= link_to "Become a host", new_listing_path %>
               <p>Tags: <% Tag.all.each do |t|%></p>
                 <%=link_to t.tag_content, tag_listings_path(t.id)%>
               <%end%>

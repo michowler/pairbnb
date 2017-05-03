@@ -4,6 +4,10 @@ class UsersController < Clearance::UsersController
 		@user = User.find(params[:id])
 	end	
 
+	def edit
+		@user = User.find(params[:id])
+	end	
+
 	def create
 	    @user = user_from_params
 	    
