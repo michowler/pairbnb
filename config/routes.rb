@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'braintree/new'
+  post 'braintree/checkout'
+
   root to: "pages#index"
 
   resources :listings, controller: "listings"
@@ -22,8 +25,6 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
-
-
 
   # resources :users, controller: "users", only: [:show] do
   #   resources :listings,
