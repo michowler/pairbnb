@@ -2,7 +2,7 @@
 <div class="promos">  
 	<div class="promo scale">
 	  <div class="deal">
-	    <span><%= l.title %></span>
+	    <span><%= link_to l.title, listing_path(l.id) %></span>
 	    <span><%= l.description %></span>
 	  </div>
 	  <span class="price">RM<%= l.price %></span>

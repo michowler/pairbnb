@@ -3,18 +3,40 @@
     <div class="col-md-6 left">
 
 	      <%= form_for @user do |form| %>
-	      <%= render partial: '/users/form', object: form %>
-	      <%end%>
+	      <div class="name-field">
+          <%= form.label :full_name %>
+          <%= form.text_field :full_name %>
+        </div>
 
-        <div class="upload-field">
-          <%= form.text_field :upload %>
-          <%= form.file_field :upload %>
+        <div class="avatar">
+          <%= form.label :upload_avatar%>
+          <%= form.file_field :avatar %>
+        </div>  
+
+        <div class="gender-field"> 
+          <%= form.label :gender %>
+          <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
+        </div>
+
+        <div class="age-field">
+          <%= form.label :age %>
+          <%= form.number_field :age %>
+        </div>
+
+        <div class="email-field">
+          <%= form.label :email %>
+          <%= form.text_field :email %>
+        </div>
+
+        <div class="password-field">
+          <%= form.label :password %>
+          <%= form.password_field :password %>
         </div>
 
         <div class="submit-field">
           <%= form.submit %>
         </div>
-
+        <%end%>
       </div>
 
        <div class="col-md-6 right">

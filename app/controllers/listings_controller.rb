@@ -7,6 +7,15 @@ class ListingsController < ApplicationController
 	def index
 		@show_tag = Tag.all
 	end
+
+	def index
+	  @listings = Listing.all
+	  if params[:search]
+	    @listings = Listing.search(params[:search]).order("created_at DESC")
+	  else
+	    @listings = Listing.all.order("created_at DESC")
+	  end
+	end
 	
 	def new
 		if current_user.customer? == false
@@ -44,6 +53,7 @@ class ListingsController < ApplicationController
 	end
 
 	def show
+		@user
 		@listings = Listing.all
 		@reservation = @listing.reservations.new
 	end
