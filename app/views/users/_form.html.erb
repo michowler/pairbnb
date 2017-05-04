@@ -1,29 +1,36 @@
-<div class="name-field">
-  <%= form.label :full_name %>
-  <%= form.text_field :full_name %>
-</div>
+<form name="registration">
+  <div class="name-field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+  </div>
 
-<div class="avatar">
-  <%= form.label :upload_avatar%>
-  <%= form.file_field :avatar %>
-</div>  
+  <div class="avatar">
+    <%= form.label :upload_photo%>
+    <%= form.file_field :avatar %>
+  </div>  
 
-<div class="gender-field"> 
-  <%= form.label :gender %>
-  <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
-</div>
+  <div class="gender-field"> 
+    <%= form.label :gender %>
+    <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
+  </div>
 
-<div class="age-field">
-  <%= form.label :age %>
-  <%= form.number_field :age %>
-</div>
+  <div class="age-field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
 
-<div class="email-field">
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-</div>
+  <div class="email-field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>        
+ 
+  <div class="submit-field">
+    <%= form.submit %>
+  </div>
+</form>
+

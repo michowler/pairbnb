@@ -74,28 +74,51 @@
    <% end %>
  </table>
  
-
+<% if current_user && current_user.listings_id == @listing.id %>
 <h1><%= @listing.title %></h1>
 <div><%= link_to "Edit Listing", edit_listing_path%></div>
-<div class="promos">  
-	<div class="promo scale">
-	  <div class="deal">
-	    <span><%= @listing.title %></span>
-	    <span><%= @listing.description %></span>
-	  </div>
-	  <span class="price">RM<%= @listing.price %></span>
-	  <ul class="features">
-	    <li><%= @listing.place_type %></li>
-	    <li><%= @listing.bedroom %> rooms</li>
-	    <li><%= @listing.guest %> guests</li>  
-	    <li><%@listing.tags.each do |t|%>
-		    <%=link_to t.tag_content, tag_listings_path(t.id)%>
-		    <%end%>
-	    </li>
-	  </ul>
-	  <button>Book Now </button>
-    
-	</div>
-</div>
+
+  <div class="promos">  
+  	<div class="promo scale">
+  	  <div class="deal">
+  	    <span><%= @listing.title %></span>
+  	    <span><%= @listing.description %></span>
+  	  </div>
+  	  <span class="price">RM<%= @listing.price %></span>
+  	  <ul class="features">
+  	    <li><%= @listing.place_type %></li>
+  	    <li><%= @listing.bedroom %> rooms</li>
+  	    <li><%= @listing.guest %> guests</li>  
+  	    <li><%@listing.tags.each do |t|%>
+  		    <%=link_to t.tag_content, tag_listings_path(t.id)%>
+  		    <%end%>
+  	    </li>
+  	  </ul>
+  	  <button>Book Now </button>
+  	</div>
+  </div>
+
+ <%else%>
+ <h1><%= @listing.title %></h1>
+   <div class="promos">  
+    <div class="promo scale">
+      <div class="deal">
+        <span><%= @listing.title %></span>
+        <span><%= @listing.description %></span>
+      </div>
+      <span class="price">RM<%= @listing.price %></span>
+      <ul class="features">
+        <li><%= @listing.place_type %></li>
+        <li><%= @listing.bedroom %> rooms</li>
+        <li><%= @listing.guest %> guests</li>  
+        <li><%@listing.tags.each do |t|%>
+          <%=link_to t.tag_content, tag_listings_path(t.id)%>
+          <%end%>
+        </li>
+      </ul>
+      <button>Book Now </button>
+    </div>
+   </div> 
+  <%end%> 
 
 

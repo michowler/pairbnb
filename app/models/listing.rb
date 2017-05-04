@@ -9,4 +9,9 @@ class Listing < ApplicationRecord
 	has_many :reservations, :dependent => :destroy
 
 	enum place_type: [:guesthouse, :hotel, :apartment, :townhouse, :cabin, :house, :bungalow]
+
+	def self.search(search)
+	  #where("title LIKE ? OR tags LIKE ? OR location LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+ 	  where("location ilike ?", "%#{search}%")
+	end
 end

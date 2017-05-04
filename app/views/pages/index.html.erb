@@ -17,8 +17,13 @@
 	  <div class="container">
 	    <h1 class="display-3" id="mingle">Mingle</h1>
 	    <p class="lead">Book unique homes and mingle around like a local</p>
+	     <p><%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+	      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+	      <%= submit_tag "Search", :name => nil %>
+	    <% end %></p>
 	    <p>Date: <input type="text" id="datepicker"></p>
 	    <!-- dates should be inside the form for listings -->
+	   
 	  </div>
 	</div>
 
