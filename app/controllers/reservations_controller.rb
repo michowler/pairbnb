@@ -12,15 +12,30 @@ class ReservationsController < ApplicationController
 	   @reservation = current_user.reservations.new(reservation_params)
 	   @reservation.listing = @listing
 
-	   if @reservation.save
-	   	 #ExampleMailer.sample_email(reservation).deliver_now
-	   	 ReservationMailer.booking_email(@listing, @reservation).deliver_now
-	     redirect_to listing_reservation_path(@listing, @reservation)
-	   else
-	     flash[:notice] = @reservation.errors.full_messages.join('. ')
-	     redirect_to listing_path(@listing)
-	   end
-	 end
+	   respond_to do |format|
+	        if @reservation.save
+	          #ReservationJob.perform_later(@listing, @reservation)
+	          #ReservationMailer.delay_for(5.minutes).booking_email(@listing, @reservation)
+	          
+	          ReservationMailer.booking_email(@listing, @reservation).deliver_now
+	          format.html { redirect_to(listing_reservation_path(@listing, @reservation), notice: 'Please confirm your payment to reserve!') }
+	          format.json { render json: @listing }
+	        else
+	          format.html { redirect_to(@listing, alert: 'Reservation failed, error!') }
+	          format.json { render json: @listing.errors.full_messages }
+	        end
+	    end
+	  end        
+
+	 #   if @reservation.save
+	   	
+	 #   	 ReservationMailer.booking_email(@listing, @reservation).deliver_now
+	 #     redirect_to listing_reservation_path(@listing, @reservation)
+	 #   else
+	 #     flash[:notice] = @reservation.errors.full_messages.join('. ')
+	 #     redirect_to listing_path(@listing)
+	 #   end
+	 # end
 
 	 def destroy
 	   @reservation = Reservation.find(params[:id])
