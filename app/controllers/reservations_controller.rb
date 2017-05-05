@@ -11,20 +11,6 @@ class ReservationsController < ApplicationController
 	   @listing = Listing.find(params[:listing_id])
 	   @reservation = current_user.reservations.new(reservation_params)
 	   @reservation.listing = @listing
-	   
-	  #  respond_to do |format|
-	  #       if @reservation.save
-	  #         # Tell the UserMailer to send a welcome email after save
-	  #         ExampleMailer.new.booking_email(current_user, @listing.user, Reservation.find(params[:rid].id)).deliver_now
-
-	  #         format.html { redirect_to(@listing, notice: 'User was successfully created.') }
-	  #         format.json { render json: @listing, status: :created, location: @listing }
-	  #       else
-	  #         format.html { render action: 'new' }
-	  #         format.json { render json: @listing.errors, status: :unprocessable_entity }
-	  #       end
-	  #   end
-	  # end  
 
 	   if @reservation.save
 	   	 #ExampleMailer.sample_email(reservation).deliver_now

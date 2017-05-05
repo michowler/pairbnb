@@ -43,6 +43,7 @@ gem "mini_magick"
 gem "fog"
 gem 'braintree'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
