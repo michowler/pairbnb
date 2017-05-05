@@ -43,6 +43,8 @@ gem "mini_magick"
 gem "fog"
 gem 'braintree'
 gem 'sidekiq'
+gem 'foreman'
+gem 'unicorn'
 
 
 # Use Capistrano for deployment
