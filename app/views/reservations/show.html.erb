@@ -1,0 +1,18 @@
+<table class="table table-striped">
+	<tr>
+	  <th>Listing Title</th>
+	  <th>Start Date</th>
+	  <th>End Date</th>
+	  <th>Total Price</th>
+	 
+	</tr>
+    <tr>
+      <td><%= @reservation.listing.title %></td>
+      <td><%= @reservation.start_date.strftime('%d %B %Y') %></td>
+      <td><%= @reservation.end_date.strftime('%d %B %Y') %></td>
+      <td>RM<%= @reservation.total_price%></td>
+    </tr>
+
+</table>
+
+<%= link_to "Confirm Payment", transactions_new_path(@reservation) %>
