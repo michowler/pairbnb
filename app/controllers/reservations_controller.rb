@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
 	          format.html { redirect_to(listing_reservation_path(@listing, @reservation), notice: 'Please confirm your payment to reserve!') }
 	          format.json { render json: @listing }
 	        else
-	          format.html { redirect_to(@listing, alert: 'Reservation failed, error!') }
+	          format.html { redirect_to(@listing, alert: 'Reservation failed, please try again!') }
 	          format.json { render json: @listing.errors.full_messages }
 	        end
 	    end

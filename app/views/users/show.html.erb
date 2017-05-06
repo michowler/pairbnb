@@ -1,6 +1,8 @@
 <h1>Welcome <%= @user.full_name %>!</h1>
 <div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
-<div><%= link_to "My listings in process", root_path%></div>
+<% if !current_user.customer? %>
+  <div><%= link_to "View listings", user_listings_path(@user.id)%></div>
+<% end %>
 
 <% if @user.avatar? %>
 	<%= image_tag @user.avatar.thumb.url, :class => "img-responsive img-circle" %>
@@ -8,29 +10,46 @@
 	<%= flash[:notice] = "ERROR NO PIC" %>
 <%end%>
 
+<% if current_user && current_user.id == @user.id %>
+<h2>My listings</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Edit?</th>
+    </tr>
 
- <h2>Booked Dates</h2>
- <table class="table table-striped">
-   <tr>
-     <th>Listing Title</th>
-     <th>Start Date</th>
-     <th>End Date</th>
-     <th>Num Guests</th>
-     <th>Total Price</th>
-     <th>Actions</th>
-   </tr>
+    <% @user.listings.each do |listing| %>
+      <tr>
+        <td><%= link_to listing.title, listing %></td>
+        <td><%= link_to "Edit Listing", edit_listing_path(listing) %></td>
+      </tr>
+    <% end %>
+  </table>
 
-   <% @user.reservations.each do |booking| %>
-     <tr>
-       <td><%= link_to booking.listing.title, booking.listing %></td>
-       <td><%= booking.start_date.strftime('%d %B %Y') %></td>
-       <td><%= booking.end_date.strftime('%d %B %Y') %></td>
-       <td><%= booking.num_guests %></td>
-       <td>RM <%= booking.total_price %></td>
-       <td><%= link_to "Cancel Booking", booking, method: :delete %></td>
-     </tr>
-   <% end %>
- </table>
+
+   <h2>Booked Dates</h2>
+     <table class="table table-striped">
+       <tr>
+         <th>Listing Title</th>
+         <th>Start Date</th>
+         <th>End Date</th>
+         <th>Num Guests</th>
+         <th>Total Price</th>
+         <th>Actions</th>
+       </tr>
+
+       <% @user.reservations.each do |booking| %>
+         <tr>
+           <td><%= link_to booking.listing.title, booking.listing %></td>
+           <td><%= booking.start_date.strftime('%d %B %Y') %></td>
+           <td><%= booking.end_date.strftime('%d %B %Y') %></td>
+           <td><%= booking.num_guests %></td>
+           <td>RM <%= booking.total_price %></td>
+           <td><%= link_to "Cancel Booking", booking, method: :delete %></td>
+         </tr>
+       <% end %>
+     </table>
+ <%end%>
 
 
 

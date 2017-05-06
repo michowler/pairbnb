@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   	 @user = User.new
      @listing = Listing.new
      @tags = Tag.all
-     @listings = Listing.all.paginate(:page => params[:page], :per_page => 2).order('id DESC')
+     @listings = Listing.all.paginate(:page => params[:page], :per_page => 6).order('id DESC')
   end
 
 end

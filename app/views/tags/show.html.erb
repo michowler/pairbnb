@@ -1,22 +1,26 @@
-<% @tag.listings.each do |l|%>
-<div class="promos">  
-	<div class="promo scale">
-	  <div class="deal">
-	    <span><%= link_to l.title, listing_path(l.id) %></span>
-	    <span><%= l.description %></span>
-	  </div>
-	  <span class="price">RM<%= l.price %></span>
-	  <ul class="features">
-	    <li><%= l.place_type %></li>
-	    <li><%= l.bedroom %> rooms</li>
-	    <li><%= l.guest %> guests</li>  
-	    <li><%l.tags.each do |t|%>
-		    <%=link_to "#{t.tag_content}", tag_listings_path(t.id)%><br>
-		    <%end%>
-	    </li>
-	  </ul>
-
-	  <button>Book Now</button>
+ <div class="container">
+	<div class="row">
+		<% @tag.listings.each do |l|%>
+		<div class="column">
+			<div class="promos">  
+				<div class="promo scale">
+				  <div class="deal">
+				    <span><%= link_to l.title, listing_path(l.id) %></span>
+				    <span><%= l.description %></span>
+				  </div>
+				  <span class="price">RM<%= l.price %></span>
+				  <ul class="features">
+				    <li><%= l.place_type %></li>
+				    <li><%= l.bedroom %> rooms</li>
+				    <li><%= l.guest %> guests</li>  
+				    <li><%l.tags.each do |t|%>
+					    <%=link_to "#{t.tag_content}", tag_listings_path(t.id)%><br>
+					    <%end%>
+				    </li>
+				  </ul>
+				</div>
+			</div>
+		</div>	
+		<%end%>
 	</div>
 </div>
-<%end%>
