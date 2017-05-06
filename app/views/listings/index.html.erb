@@ -1,27 +1,22 @@
 <% if @listings.blank? %>
   <h4>There are no listings containing the term <%= params[:search] %>.</h4>
 <% else %>
+<div class="container">
+ <div class="row">
+	<div class="col-md-12">
 	<% @listings.each do |l| %>
-	 <h1><%= l.title %></h1>
-	   <div class="promos">  
-	    <div class="promo scale">
-	      <div class="deal">
-	        <span><%= l.title %></span>
-	        <span><%= l.description %></span>
-	      </div>
-	      <span class="price">RM<%= l.price %></span>
-	      <ul class="features">
-	        <li><%= l.place_type %></li>
-	        <li><%= l.bedroom %> rooms</li>
-	        <li><%= l.guest %> guests</li>  
-	        <li><%l.tags.each do |t|%>
-	          <%=link_to t.tag_content, tag_listings_path(t.id)%>
-	          <%end%>
-	        </li>
-	      </ul>
-	      <button>Book Now </button>
-	    </div>
-	   </div> 
-	
-	<% end %> 
+     <div class="column">
+       <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">
+           <img src="..." alt="...">
+           <div class="caption">
+             <h4><%= link_to l.title, listing_path(l.id) %></h4>
+             <p><span class="price">RM<%= l.price %></span></p>		
+             <p><a href="/listings/<%=l.id%>" class="btn btn-default" role="button">Book now</a></p>
+           </div>
+         </div>
+       </div>
+     </div>
+	<% end %>
+    </div>
 <% end %>

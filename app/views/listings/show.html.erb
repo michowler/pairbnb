@@ -1,3 +1,5 @@
+
+ <br><br><br>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -10,13 +12,16 @@
   <div class="carousel-inner">
     <% if @listing.photos? %>
    		<div class= "item active">
+       <div class="carousel-caption">
+         <div class="create-header"><%= @listing.title %></div>
+       </div> 
    			<%= image_tag @listing.photos.first.fill, class:"img-response" %>
    		</div>
-
+      
    		<% @listing.photos.shift %>
-   		<% @listing.photos.each do |photo| %>
+   		<% @listing.photos.each do |photo| %>      
    			<div class= "item">
-   			<%= image_tag photo.fill, class:"img-response" %>
+   			 <%= image_tag photo.fill, class:"img-response" %>
    			</div>
    		<%end%>
 
@@ -36,9 +41,14 @@
   </a>
 </div>
 
-<%= render "reservations/form" %>
+ <br><br><br><br>
 
- <h2>Booked Dates</h2>
+<div class="panel panel-primary">
+  <%= render "reservations/form" %>
+</div>  
+
+<div class="panel panel-primary">
+ <div class="panel-heading">Booked Dates</div>
  <table class="table table-striped">
    <tr>
      <th>Listing Title</th>
@@ -57,10 +67,10 @@
      </tr>
    <% end %>
  </table>
+</div> 
+ <br><br><br><br>
 
 <h1><%= @listing.title %></h1>
-<div><%= link_to "Edit Listing", edit_listing_path%></div>
-
   <div class="promos">  
   	<div class="promo scale">
   	  <div class="deal">
@@ -77,7 +87,6 @@
   		    <%end%>
   	    </li>
   	  </ul>
-  	  <button>Book Now </button>
   	</div>
   </div>
 

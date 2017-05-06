@@ -6,8 +6,8 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
   <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
-  <script src="parsley.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Inknut+Antiqua" rel="stylesheet">
 
 </head>
 
@@ -19,24 +19,28 @@
       <div class="container-fluid">
 
         <div class="navbar-header">
-          <%= link_to 'Mingle', root_path, class: 'navbar-brand' %>
-            <span class= 'navbar-brand' id="main" style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; more info</span>
+          <%= link_to 'Mingle', root_path, class: 'navbar-brand', id: 'mingle-logo' %>
+          
+            <span class= 'navbar-brand' id="main" style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; more info</span> 
               <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+                 <%= text_field_tag :search, params[:search], placeholder: "location", class: "form-control", style: "margin:auto; width:200px;" %>      
+                <% end %>
+
                 <%= link_to "Become a host", new_listing_path %>
-                <p>Tags: <% Tag.all.each do |t|%></p>
+
+                <p>Tags:</p>
+                  <% Tag.all.each do |t|%>
                   <%=link_to t.tag_content, tag_listings_path(t.id)%>
                 <%end%>
               </div>
-                <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-                    <%= text_field_tag :search, params[:search], placeholder: "Search Listings" %>
-                    <%= submit_tag "Search", :name => nil %>
-                <% end %>
+               
         </div>
 
         <div class="nav navbar-nav pull-right">
-          <span> <a href= "/users/<%=current_user.id%>" class='navbar-brand'>Welcome back <%=current_user.email%> </a></span>
-          <li><%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
+          <span> <a href= "/users/<%=current_user.id%>" class='navbar-brand'><span class="glyphicon glyphicon-user" ></span> <%=current_user.full_name%> </a></span>
+          <li><%= button_to t(".sign_out"), root_path, method: :delete, class: "btn btn-default" %></li>
          </div> 
        </div>   
 
@@ -45,16 +49,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <%= link_to 'Mingle', root_path, class: 'navbar-brand' %>
-          <span class= 'navbar-brand' id="main" style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; more info</span>
-            <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <%= link_to "Become a host", new_listing_path %>
-              <p>Tags: <% Tag.all.each do |t|%></p>
-                <%=link_to t.tag_content, tag_listings_path(t.id)%>
-              <%end%>
-            </div>
-            
+          <%= link_to 'Mingle', root_path, class: 'navbar-brand', id: 'mingle-logo' %>            
         </div>
 
         <ul class="nav navbar-nav navbar-right">

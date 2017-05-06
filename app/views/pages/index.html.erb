@@ -6,60 +6,49 @@
 	  <link rel="stylesheet" href="/resources/demos/style.css">
 	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	  <script>
-	  $( function() {
-	    $( "#datepicker" ).datepicker();
-	  } );
-	  </script>
 	</head>
 <body>
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
 	    <h1 class="display-3" id="mingle">Mingle</h1>
 	    <p class="lead">Book unique homes and mingle around like a local</p>
-	     <p><%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-	      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-	      <%= submit_tag "Search", :name => nil %>
-	    <% end %></p>
-	    <p>Date: <input type="text" id="datepicker"></p>
+	     <div class="col-xs-4">
+	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+	      <%= text_field_tag :search, params[:search], placeholder: "Where?", class: "form-control"%>
+	     
+	     <% end %>
+	     </div>
+	    <p>When? <input type="text" id="datepicker" ></p>
 	    <!-- dates should be inside the form for listings -->
 	   
 	  </div>
 	</div>
 
 	<div class="container">
-
 		<div class="row">
-			<div class="col-md-6 left">
-		
-			
-		    </div>
+		   <div class="col-md-12">
+			<% @listings.each do |l| %>
+		     <div class="column">
+		       <div class="col-sm-6 col-md-4">
+		         <div class="thumbnail">
+		           <img src="..." alt="...">
+		           <div class="caption">
+		             <h4><%= link_to l.title, listing_path(l.id) %></h4>
+		             <p><span class="price">RM<%= l.price %></span></p>		
+		             <p><a href="/listings/<%=l.id%>" class="btn btn-default" role="button">Book now</a></p>
+		           </div>
+		         </div>
+		       </div>
+		     </div>
+			<% end %>
+		   </div>
 
-			<div class="col-md-6 right">
-				<h1><% @listings.each do |l| %></h1>
+			<!-- <div class="col-md-6 right">
 
-				 <div class="promos">  
-				    <div class="promo scale">
-					  <div class="deal">
-					     <span><%= link_to l.title, listing_path(l.id) %></a></span>
-					     <span>
-					    <span><%= l.description %></span>
-					  </div>
-					  <span class="price">RM<%= l.price %></span>
-					  <ul class="features">
-					    <li><%= l.place_type %></li>
-					    <li><%= l.bedroom %> rooms</li>
-					    <li><%= l.guest %> guests</li>   
-					  </ul>
-					  <button>Book Now</button>
-					</div>
-			      </div>
-			     <% end %>
-
-			</div>
+			</div> -->
 		</div>
 	</div>
-
+	
 		<%= will_paginate @listings, previous_label: "Back", next_label: "More", inner_window: 1, outer_window: 0 %>
 	</body>
 </html>
