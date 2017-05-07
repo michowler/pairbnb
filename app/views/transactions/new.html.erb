@@ -21,11 +21,12 @@
       <div><p>Total price: RM<%= @reservation.total_price %></p></div>
 
       <div class="button-container">
-        <%= form.submit "Purchase", disabled: false, class: "btn btn-success btn-lg center-block", id: "submit-payment-btn" %>
+        <%= form.submit "Purchase", :"data-no-turbolink" => true, class: "btn btn-success btn-lg center-block", id: "submit-payment-btn" %>
       </div>
     <% end %>
-  </div>
 
+  </div>
+  
 <script>
 
   var submit = document.querySelector("#submit-payment-btn");

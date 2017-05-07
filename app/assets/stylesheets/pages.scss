@@ -18,116 +18,32 @@ textarea {
   margin-bottom: 10px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
-body {
-	color: black;
-}
-.promos {
-  width: 800px;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-.promo {
-  width: 250px;
-  background: #0F1012; 
-  color: #f9f9f9;
-  float: left;
-}
-.deal {
-  padding: 10px 0 0 0;
-}
-.deal span {
-  display: block;
-  text-align: center;
-}
-.deal span:first-of-type {
-  font-size: 23px;  
-}
-.deal span:last-of-type {
-  font-size: 13px;
-}
-.promo .price {
-  display: block;
-  width: 250px;  
-  background: #292b2e;
-  margin: 15px 0 10px 0;
-  text-align: center;
-  font-size: 23px;
-  padding: 17px 0 17px 0;
-}
-ul {
-  display: block;
-  margin: 20px 0 10px 0;
-  padding: 0;
-  list-style-type: none;
-  text-align: center;
-  color: #999999;
-}
-li {
-  display: block;
-  margin: 10px 0 0 0;
-}
-button {
-  border: none;
-  border-radius: 40px;
-  background: #292b2e;
-  color: #f9f9f9;
-  padding: 10px 37px;
-  margin: 10px 0 20px 60px;
-}
-.scale {
-  transform: scale(1.2);
-  box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
-}
-.scale button {
-  background: #64AAA4;
-}
-.scale .price {
-  color: #64AAA4;
+
+#mingle {
+  color: #ff7070;
+  font-family: 'Inknut Antiqua', serif;
 }
 
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+#mingle-logo {
+  color: #ff7070;
+  font-family: 'Inknut Antiqua', serif;
 }
 
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.listing-header {
+    background:rgba(255,255,255,0.5);
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 35px;
+    font-family: 'Inknut Antiqua', serif;
 }
 
 
+.create-header {
+    background:rgba(255,255,255,0.5);
+    color: black;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 30px;
+    font-family: Courier;
+}
+
+.img-responsive img-circle {border-radius: 50%;}
