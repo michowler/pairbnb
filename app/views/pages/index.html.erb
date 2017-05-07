@@ -7,19 +7,19 @@
 	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	</head>
+
 <body>
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">
 	    <h1 class="display-3" id="mingle">Mingle</h1>
-	    <p class="lead">Book unique homes and mingle around like a local</p>
-	     <div class="col-xs-4">
+	    <p class="lead">book unique homes and mingle around like a local</p>
+	     <p class="col-xs-4">
 	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-	      <%= text_field_tag :search, params[:search], placeholder: "Where?", class: "form-control"%>
-	     
+	      <%= text_field_tag :search, params[:search], placeholder: "Where do you wanna go? Search for a location now!", class: "form-control"%>	     
 	     <% end %>
-	     </div>
+	     </p>
+	     
 	    <p>When? <input type="text" id="datepicker" ></p>
-	    <!-- dates should be inside the form for listings -->
 	   
 	  </div>
 	</div>
@@ -31,7 +31,11 @@
 		     <div class="column">
 		       <div class="col-sm-6 col-md-4">
 		         <div class="thumbnail">
+		         <% if l.photos? %>
+		         <img><%= image_tag l.photos.first.medium, class:"img-response" %></img>
+		         <% else %> 
 		           <img src="..." alt="...">
+		         <%end%>
 		           <div class="caption">
 		             <h4><%= link_to l.title, listing_path(l.id) %></h4>
 		             <p><span class="price">RM<%= l.price %></span></p>		
@@ -48,7 +52,6 @@
 			</div> -->
 		</div>
 	</div>
-	
 		<%= will_paginate @listings, previous_label: "Back", next_label: "More", inner_window: 1, outer_window: 0 %>
 	</body>
 </html>

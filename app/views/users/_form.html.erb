@@ -1,36 +1,45 @@
-<form name="registration">
+<br>
+<form name="registration",>
   <div class="name-field">
-    <%= form.label :full_name %>
+    <p class="login-input">FULL NAME:</p>
     <%= form.text_field :full_name %>
   </div>
 
+  <br>
   <div class="avatar">
-    <%= form.label :upload_photo%>
+     <p class="login-input">UPLOAD PICTURE:</p><i> (Optional)</i></p>
     <%= form.file_field :avatar %>
-  </div>  
+  </div> 
 
+  <br>
   <div class="gender-field"> 
-    <%= form.label :gender %>
+    <p class="login-input">GENDER:</p>
     <%= form.select :gender, options_for_select([["undefined", :undefined], ["male", :male], ["female", :female]])%>
   </div>
 
+  <br>
   <div class="age-field">
-    <%= form.label :age %>
+    <p class="login-input">AGE:</p>
     <%= form.number_field :age %>
   </div>
 
+  <br>
   <div class="email-field">
-    <%= form.label :email %>
+    <p class="login-input">E-MAIL:</p>
     <%= form.text_field :email %>
   </div>
 
+  <br>
   <div class="password-field">
-    <%= form.label :password %>
+    <p class="login-input">PASSWORD:</p>
     <%= form.password_field :password %>
-  </div>        
- 
+  </div>    
+
+  <br>
   <div class="submit-field">
     <%= form.submit %>
   </div>
 </form>
+
+
 
