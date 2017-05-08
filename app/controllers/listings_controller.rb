@@ -5,16 +5,15 @@ class ListingsController < ApplicationController
 	
 
 	def index
-		#@form_listing = ListingFindForm.new(params.require(:listing_find_form))
 		@show_tag = Tag.all
 	end
 
 	def index
 	  @listings = Listing.all
-	  if params[:search]
-	    @listings = Listing.search(params[:search], params[:min], params[:max]).order("created_at DESC")
-	  else
-	    @listings = Listing.all.order("created_at DESC")
+	  if !params[:search].present?
+	    @listings = Listing.search("", params[:min], params[:max]).order("created_at DESC")
+	  elsif params[:search]
+	  	@listings = Listing.search(params[:search], 1, 100000000).order("created_at DESC")
 	  end
 	end
 	

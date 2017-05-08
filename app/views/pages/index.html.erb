@@ -16,21 +16,22 @@
 	     
 	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
 	     <form class="form-inline">
-	     <div class="form-group">
-	      <%= text_field_tag :search, params[:search], placeholder: "Where?", class: "col-xs-4"%>
-	      </div>
-	       <div class="form-group">
-	      <%= number_field_tag :min, params[:min], placeholder: "Minimum price", class: "col-xs-4"%>
-	      </div>
-	      <div class="form-group">
-	      <%= number_field_tag :max, params[:max], placeholder: "Maximum price", class: "col-xs-4"%>
-	      </div>	
-	      <div class="form-group">
-	      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
-	      </div>			     
+		     <div class="form-group">
+		      <%= text_field_tag :search, params[:search], placeholder: "Where?", class: "col-xs-4"%>
+		      </div>
+		       <div class="form-group">
+		      <%= number_field_tag :min, params[:min], placeholder: "Minimum price", class: "col-xs-4"%>
+		      </div>
+		      <div class="form-group">
+		      <%= number_field_tag :max, params[:max], placeholder: "Maximum price", class: "col-xs-4"%>
+		      </div>	
+		      <div class="form-group">
+		      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+		      </div>			     
 	     <% end %>
+	     </form>
 
-	     </p>
+	     
 	     
 	    <p>When? <input type="text" id="datepicker" ></p>
 	   
