@@ -44,7 +44,7 @@ gem "fog"
 gem 'braintree'
 gem 'sidekiq'
 gem 'foreman'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
