@@ -15,7 +15,9 @@
 	    <p class="lead">book unique homes and mingle around like a local</p>
 	     <p class="col-xs-4">
 	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-	      <%= text_field_tag :search, params[:search], placeholder: "Where do you wanna go? Search for a location now!", class: "form-control"%>	     
+	      <%= text_field_tag :search, params[:search], placeholder: "Search/Where do you wanna go? Search for a location now!", class: "form-control"%>
+	      <%= text_field_tag :location, params[:location], placeholder: "Where do you wanna go? Search for a location now!", class: "form-control"%>
+	      <%= number_field_tag :price, params[:price], placeholder: "Have a budget? Search the lowest price now!", class: "form-control"%>			     
 	     <% end %>
 	     </p>
 	     
