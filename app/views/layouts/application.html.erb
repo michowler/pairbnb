@@ -25,7 +25,8 @@
               <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-                 <%= text_field_tag :search, params[:search], placeholder: "location", class: "form-control", style: "margin:auto; width:200px;" %>      
+                 <%= text_field_tag :search, params[:search], placeholder: "location", class: "form-control", style: "margin:auto; width:200px;" %>
+                       
                 <% end %>
 
                 <%= link_to "Become a host", new_listing_path %>

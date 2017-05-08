@@ -45,6 +45,7 @@ gem 'braintree'
 gem 'sidekiq'
 gem 'foreman'
 gem 'rails_12factor', group: :production
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

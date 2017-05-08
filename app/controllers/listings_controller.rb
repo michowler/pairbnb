@@ -5,13 +5,14 @@ class ListingsController < ApplicationController
 	
 
 	def index
+		#@form_listing = ListingFindForm.new(params.require(:listing_find_form))
 		@show_tag = Tag.all
 	end
 
 	def index
 	  @listings = Listing.all
 	  if params[:search]
-	    @listings = Listing.search(params[:search]).order("created_at DESC")
+	    @listings = Listing.search(params[:search], params[:min], params[:max]).order("created_at DESC")
 	  else
 	    @listings = Listing.all.order("created_at DESC")
 	  end
@@ -59,6 +60,10 @@ class ListingsController < ApplicationController
 		@listings = Listing.all
 		@reservation = @listing.reservations.new
 	end
+
+	def find
+	    @form_listing = ListingFindForm.new
+	  end
 
 	private 
 	def find_listing

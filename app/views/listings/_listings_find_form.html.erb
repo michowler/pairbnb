@@ -1,0 +1,16 @@
+<%= form_for @form_listing, :url => url_for(:controller => 'listings', :action => 'get') do |f| %>
+
+  <p>
+    <%= f.label :location, 'Location:' %>
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+     <%= f.label :price, 'Price:' %>
+     <%= f.text_field :price %>  
+  </p>
+
+  <p>
+    <%= f.submit 'search'%>
+  </p>
+<% end %>

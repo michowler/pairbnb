@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
+	#include PgSearch
 
 	serialize :photos, Array 
 	mount_uploaders :photos, PhotoUploader
@@ -13,9 +14,9 @@ class Listing < ApplicationRecord
 	#scope :locations, -> (location) { where("location ilike ?", "#{search}%") }
 	#scope :prices, -> (price) { where ("price ilike ?", "#{price}%") }
 
-	def self.search(search)
+	def self.search(search, min, max)
 	  #Listing.where('location LIKE :search OR price LIKE :search OR console LIKE :search', search: "%#{search}%")	
 	  #where("title LIKE ? OR tags LIKE ? OR location LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
- 	  where("location ilike ?", "%#{search}%")
+ 	  where("location ilike ? AND price < ? AND price > ?", "%#{search}%", max, min) 
 	end
 end
