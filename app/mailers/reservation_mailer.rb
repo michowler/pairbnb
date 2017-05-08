@@ -5,7 +5,7 @@ class ReservationMailer < ApplicationMailer
 	  #host = listing.user #listing.reservation #parse in the email 
 	  @customer = customer.user
 	  @host = host.user
-	  @url  = 'imingle.herokuapp.com'
+	  @url  = 'http://imingle.herokuapp.com'
 	  mail(:to => @host.email, :subject => "Reservation")
 	end
 	

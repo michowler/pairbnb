@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
 	          #ReservationJob.perform_later(@listing, @reservation)
 	          #ReservationMailer.delay_for(5.minutes).booking_email(@listing, @reservation)
 	          
-	          ReservationMailer.booking_email(@listing, @reservation).deliver_now
+	          ReservationMailer.booking_email(@listing, @reservation).deliver_later
 	          format.html { redirect_to(listing_reservation_path(@listing, @reservation), notice: 'Please confirm your payment to reserve!') }
 	          format.json { render json: @listing }
 	        else
