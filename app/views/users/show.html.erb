@@ -2,7 +2,6 @@
 	<%= image_tag @user.avatar.thumb.url, :class => "img-responsive img-circle" %>
 <% else %> 
   <img src="..." alt="...">
-	<%= flash[:notice] = "UPDATE YOUR PROFILE PICTURE" %>
 <%end%>
 
 <h1>Welcome <%= @user.full_name %></h1>
