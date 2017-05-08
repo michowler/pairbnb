@@ -33,7 +33,8 @@ class ListingsController < ApplicationController
 		if @listing.save
 			redirect_to @listing
 		else
-			render action: 'new'	
+
+			redirect_to @listing, notice: "Sorry. Listing not saved."
 		end	
 	end
 
