@@ -13,13 +13,21 @@
 	  <div class="container">
 	    <h1 class="display-3" id="mingle">Mingle</h1>
 	    <p class="lead">book unique homes and mingle around like a local</p>
-	     <p class="col-xs-4">
+	     
 	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-	     <h2>SEARCH:</h2>
-	      <%= text_field_tag :search, params[:search], placeholder: "Where do you wanna go? Search for a location now!", class: "form-control"%>
-	      <%= number_field_tag :min, params[:min], placeholder: "Minimum price", class: "form-control"%>
-	      <%= number_field_tag :max, params[:max], placeholder: "Maximum price", class: "form-control"%>	
-	      <%= submit_tag "Search", :name => nil %>			     
+	     <form class="form-inline">
+	     <div class="form-group">
+	      <%= text_field_tag :search, params[:search], placeholder: "Where?", class: "col-xs-4"%>
+	      </div>
+	       <div class="form-group">
+	      <%= number_field_tag :min, params[:min], placeholder: "Minimum price", class: "col-xs-4"%>
+	      </div>
+	      <div class="form-group">
+	      <%= number_field_tag :max, params[:max], placeholder: "Maximum price", class: "col-xs-4"%>
+	      </div>	
+	      <div class="form-group">
+	      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+	      </div>			     
 	     <% end %>
 
 	     </p>
