@@ -5,7 +5,7 @@
 	<%= flash[:notice] = "UPDATE YOUR PROFILE PICTURE" %>
 <%end%>
 
-<h1>Welcome <%= @user.full_name %>!</h1>
+<h1>Welcome <%= @user.full_name %></h1>
 <div><%= link_to "Edit Profile", edit_user_path(@user)%></div>
 <% if !current_user.customer? %>
   <div><%= link_to "View listings", user_listings_path(@user.id)%></div>

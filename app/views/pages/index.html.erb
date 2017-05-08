@@ -13,7 +13,7 @@
 	  <div class="container">
 	    <h1 class="display-3" id="mingle">Mingle</h1>
 	    <p class="lead">book unique homes and mingle around like a local</p>
-	     
+
 	     <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
 	     <form class="form-inline">
 		     <div class="form-group">
@@ -25,8 +25,9 @@
 		      <div class="form-group">
 		      <%= number_field_tag :max, params[:max], placeholder: "Maximum price", class: "col-xs-4"%>
 		      </div>	
-		      <div class="form-group">
-		      <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+		      <br>
+		      <div class="form-group" style="text-align:center; margin:auto; margin-top: 5px;">
+		      <%= submit_tag "Search", :name => nil, :class => "btn btn-primary-home", :style => "text-align:center; margin:auto; margin-top: 5px;" %>
 		      </div>			     
 	     <% end %>
 	     </form>
@@ -53,7 +54,7 @@
 		           <div class="caption">
 		             <h4><%= link_to l.title, listing_path(l.id) %></h4>
 		             <p><span class="price">RM<%= l.price %></span></p>		
-		             <p><a href="/listings/<%=l.id%>" class="btn btn-default" role="button">Book now</a></p>
+		             <p><a href="/listings/<%=l.id%>" class="btn btn-primary" role="button">Book now</a></p>
 		           </div>
 		         </div>
 		       </div>

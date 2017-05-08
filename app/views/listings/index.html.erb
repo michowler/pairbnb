@@ -1,22 +1,22 @@
 <% if @listings.blank? %>
-  <h4>There are no listings containing your search <%= params[:search] %>.</h4>
+  <h4>There are no listings containing your search "<%=params[:search]%>" with price range of RM<%=params[:min]%> to RM<%=params[:max] %>.</h4>
 <% else %>
-<div class="container">
- <div class="row">
-	<div class="col-md-12">
-	<% @listings.each do |l| %>
-     <div class="column">
-       <div class="col-sm-6 col-md-4">
-         <div class="thumbnail">
-           <img src="..." alt="...">
-           <div class="caption">
-             <h4><%= link_to l.title, listing_path(l.id) %></h4>
-             <p><span class="price">RM<%= l.price %></span></p>		
-             <p><a href="/listings/<%=l.id%>" class="btn btn-default" role="button">Book now</a></p>
+  <div class="container">
+   <div class="row">
+  	<div class="col-md-12">
+  	<% @listings.each do |l| %>
+       <div class="column">
+         <div class="col-sm-6 col-md-4">
+           <div class="thumbnail">
+             <img src="..." alt="...">
+             <div class="caption">
+               <h4><%= link_to l.title, listing_path(l.id) %></h4>
+               <p><span class="price">RM<%= l.price %></span></p>		
+               <p><a href="/listings/<%=l.id%>" class="btn btn-default" role="button">Book now</a></p>
+             </div>
            </div>
          </div>
        </div>
-     </div>
-	<% end %>
-    </div>
-<% end %>
+  	<% end %>
+      </div>
+  <% end %>

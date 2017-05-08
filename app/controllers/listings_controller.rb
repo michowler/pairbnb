@@ -1,20 +1,31 @@
 class ListingsController < ApplicationController
+	#include PgSearch
+
 	#before_action :require_login, only: [:new, :create]
 	before_action :logged_in_user, only: [:new, :create]
 	before_action :find_listing, only: [:show, :delete, :edit, :update]
-	
+
 
 	def index
-		@show_tag = Tag.all
-	end
+		# results = PgSearch.multisearch(params[:search])
+  #       @listings = Listing.where(id: results.pluck(:searchable_id))
 
-	def index
-	  @listings = Listing.all
-	  if !params[:search].present?
-	    @listings = Listing.search("", params[:min], params[:max]).order("created_at DESC")
-	  elsif params[:search]
-	  	@listings = Listing.search(params[:search], 1, 100000000).order("created_at DESC")
-	  end
+	    @listings = Listing.all	  
+	    if params[:search].present?	&& params[:min].present? && !params[:max].present?
+	    	  redirect_to root_path, notice: "Sorry. Please enter a price range" 
+	    elsif params[:search].present?	&& !params[:min].present? && params[:max].present?
+	    	  redirect_to root_path, notice: "Sorry. Please enter a price range"	  
+	    elsif !params[:search].present?	
+	    	  @listings = Listing.search("", params[:min], params[:max]).order("created_at DESC")
+	    elsif !params[:search].present?	&& !params[:min].present? && params[:max].present?
+	    	 redirect_to root_path, notice: "Sorry. Please enter a price range"
+	    elsif !params[:search].present?	&& params[:min].present? && !params[:max].present?
+	    	 redirect_to root_path, notice: "Sorry. Please enter a price range" 	  	  
+	    elsif params[:search].present? && !params[:min].present? && !params[:max].present?
+	    	  @listings = Listing.search(params[:search], 1, 10000000000).order("created_at DESC")
+	    else !params[:search] && !params[:min] && !params[:max]
+	    	  redirect_to root_path, notice: "Sorry. Cannot perform task!" 
+	    end
 	end
 	
 	def new

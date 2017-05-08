@@ -6,6 +6,12 @@ class PagesController < ApplicationController
      @listing = Listing.new
      @tags = Tag.all
      @listings = Listing.all.paginate(:page => params[:page], :per_page => 6).order('id DESC')
-  end
+    
+  end	
 
+  def search
+  	 #results = PgSearch.multisearch(params[:search])
+  	 #@listings = Listing.where(id: results.pluck(:searchable_id))
+  end
+  	
 end
