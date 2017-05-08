@@ -10,8 +10,8 @@ class Listing < ApplicationRecord
 
 	enum place_type: [:guesthouse, :hotel, :apartment, :townhouse, :cabin, :house, :bungalow]
 
-	scope :locations, -> (location) { where("location ilike ?", "#{location}%")}
-	scope :prices, -> (price) {where ("price ilike ?", "#{price}")}
+	#scope :locations, -> (location) { where("location ilike ?", "#{search}%") }
+	#scope :prices, -> (price) { where ("price ilike ?", "#{price}%") }
 
 	def self.search(search)
 	  #Listing.where('location LIKE :search OR price LIKE :search OR console LIKE :search', search: "%#{search}%")	
