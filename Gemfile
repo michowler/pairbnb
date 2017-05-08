@@ -44,7 +44,6 @@ gem "fog"
 gem 'braintree'
 gem 'sidekiq'
 gem 'foreman'
-gem 'unicorn'
 gem 'rails_12factor'
 
 # Use Capistrano for deployment
