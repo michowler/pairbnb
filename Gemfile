@@ -47,7 +47,7 @@ gem 'foreman'
 gem 'rails_12factor', group: :production
 gem 'pg_search'
 gem "font-awesome-rails"
-gem 'slim-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
