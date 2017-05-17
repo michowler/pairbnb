@@ -27,8 +27,7 @@ class ReservationsController < ApplicationController
 	    end
 	  end        
 
-	 #   if @reservation.save
-	   	
+	 #   if @reservation.save	
 	 #   	 ReservationMailer.booking_email(@listing, @reservation).deliver_now
 	 #     redirect_to listing_reservation_path(@listing, @reservation)
 	 #   else

@@ -36,7 +36,7 @@ ActiveRecord::Base.transaction do
     listing['guest'] = rand(1..10)
     listing['location'] = Faker::Address.street_address
     listing['price'] = rand(80..500)
-    listing['tag_ids'] = rand(1..6) 
+    listing['tag_ids'] = rand(1..7) 
     
 
     listing['user_id'] = uids.sample

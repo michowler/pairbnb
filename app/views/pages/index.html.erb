@@ -59,6 +59,84 @@
 			<% end %>
 		   </div>
 
+		   <!-- include jQuery -->
+		   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+		   <!-- include prezento -->
+		   <script src="http://path/to/your/copy/of/jquery.prezento.js"></script>
+
+		   <script>
+		       $('.prezento-holder').prezento({
+		           //see below for settings
+		       });
+		   </script>
+
+		   ...
+
+		   <!-- declare a prezento placeholder-->
+		   <div class="prezento-holder" name="device[name=imac]"></div>
+		   <!-- ended prezento here -->
+
+		   <script>
+		       $('.prezento-holder').prezento({
+		         devices: [{
+		           name: 'imac',
+		           deviceImageSRC: './../images/imac.png',
+		           xLeftTop: 182,
+		           yLeftTop: 110,
+		           xRightBottom: 2106,
+		           yRightBottom: 1262,
+		           breakpoint: 1440,
+		           bgImgSrc : './../images/web-design-huge.jpg',
+		           bgTransitionDuration: '12s'
+		         },{
+		           name: 'macbookpro',
+		           deviceImageSRC: './../images/mbp.png',
+		           xLeftTop: 124,
+		           yLeftTop: 36,
+		           xRightBottom: 876,
+		           yRightBottom: 505,
+		           breakpoint: 860,
+		           bgImgSrc : './../images/web-design-large.jpg',
+		           bgTransitionDuration: '12s'
+		         },{
+		           name: 'ipad',
+		           deviceImageSRC: './../images/ipad.png',
+		           xLeftTop: 110,
+		           yLeftTop: 110,
+		           xRightBottom: 890,
+		           yRightBottom: 1144,
+		           breakpoint: 480,
+		           bgImgSrc : './../images/web-design-med.jpg',
+		           bgTransitionDuration: '15s'
+		         },{
+		           name: 'iphone',
+		           deviceImageSRC: './../images/iphone.png',
+		           xLeftTop: 40,
+		           yLeftTop: 134,
+		           xRightBottom: 440,
+		           yRightBottom: 830,
+		           breakpoint: 0,
+		           bgImgSrc : './../images/web-design-small.jpg',
+		           bgTransitionDuration: '4s'
+		         }], 
+		           responsive: 'none'
+		       });
+
+		       jQuery('.btn-imac').on('click', function(){
+		           jQuery('.prezento-holder').prezento.changeDevice('imac');
+		       })
+		       jQuery('.btn-mbp').on('click', function(){
+		           jQuery('.prezento-holder').prezento.changeDevice('macbookpro');
+		       })
+		       jQuery('.btn-ipad').on('click', function(){
+		           jQuery('.prezento-holder').prezento.changeDevice('ipad');
+		       })
+		       jQuery('.btn-iphone').on('click', function(){
+		           jQuery('.prezento-holder').prezento.changeDevice('iphone');
+		       });
+		   </script>
+
 			<!-- <div class="col-md-6 right">
 
 			</div> -->

@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-	include PgSearch
+	#include PgSearch
 
 	serialize :photos, Array 
 	mount_uploaders :photos, PhotoUploader
@@ -13,7 +13,8 @@ class Listing < ApplicationRecord
 
 	#scope :search, -> (search, min, max) { where("location ilike ? AND price < ? AND price > ?", "%#{search}%", max, min) }
     #pg_search_scope :search_content_for, against: :content, using: { tsearch: { any_word: true } }
-    multisearchable :against => [:location, :price]
+
+    #multisearchable :against => [:location, :price]
     	
 	def self.search(search, min, max)	 
  	  where("location ilike ? AND price < ? AND price > ?", "%#{search}%", max, min) 

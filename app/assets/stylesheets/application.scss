@@ -1,9 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 @import "transactions";
 @import "pages";
 @import "listings";
 @import "sessions";
+@import "users";
 
 .error {
 	color: red;

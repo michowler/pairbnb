@@ -9,6 +9,8 @@ class User < ApplicationRecord
   enum status: [:customer, :superadmin, :moderator]
   enum gender: [:undefined, :male, :female]
 
+  #validates_format_of :email, :with => /^[\+A-Z0-9\._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+
 	def self.create_with_auth_and_hash(authentication, auth_hash)
     create! do |u|
        u.full_name = auth_hash["info"]["name"]
